@@ -6,7 +6,7 @@ import streamlit as st
 try:
     import secret
 except RequestException as e:
-    logging.error(f"import secret failed: {e}")
+    None
 
 
 open_api_key = secret.acn_token | st.secrets["acn_token"]
