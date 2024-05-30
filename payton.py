@@ -1,7 +1,9 @@
 import streamlit as st
 import model_handler as model_handler
 import logging
-import secret
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # import prompt generator module
 import market_sectors.sns as sns
@@ -77,5 +79,5 @@ def main():
 
 
 if __name__ == "__main__":
-    open_api_key = secret.acn_token
+    open_api_key = os.getenv('acn_token')
     main()
