@@ -3,13 +3,12 @@ import backoff
 import logging
 from requests.exceptions import RequestException
 import streamlit as st
-try:
-    import secret
-except RequestException as e:
-    None
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 
-open_api_key = secret.acn_token | st.secrets["acn_token"]
+open_api_key = os.getenv('acn_token') or st.secrets["acn_token"]
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
