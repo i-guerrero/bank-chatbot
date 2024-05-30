@@ -1,6 +1,5 @@
 import streamlit as st
 import model_handler as model_handler
-import market_sectors.firstmessage as firstmessage
 import logging
 import secret
 
