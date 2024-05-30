@@ -2,9 +2,14 @@ import requests
 import backoff
 import logging
 from requests.exceptions import RequestException
-import secret
+import streamlit as st
+try:
+    import secret
+except RequestException as e:
+    logging.error(f"import secret failed: {e}")
 
-open_api_key = secret.acn_token
+
+open_api_key = secret.acn_token | st.secrets["acn_token"]
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
