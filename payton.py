@@ -54,7 +54,8 @@ def main():
 
         try:
             prompt = sns.sns_prompt(input)  # TODO this is the function to add
-            response = model_handler.openai_api(prompt, model=model_name, temperature=0.7, top_p=1.0, n=1, stream=False)
+            response = model_handler.openai_api(prompt, model=model_name, temperature=0.7, top_p=1.0, n=1, stream=False).replace("$", "\$")
+            # response.replace("$", "\$")
             # post = sns.sns_prompt(response,keyword)
             # response1 = model_handler.openai_api(post, model=model_name, temperature=0.7, top_p=1.0, n=1, stream=False)
             # Display assistant response in chat message container
